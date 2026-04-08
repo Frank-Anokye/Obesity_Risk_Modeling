@@ -39,7 +39,45 @@ The dataset include data for the estimation of obesity levels in individuals fro
 
 ## EXPLORATORY DATA ANALYSIS (EDA)
 
-### Target Distribution
-The data is relatively balanced, however, obesity level (Insufficient_Weight) has the fewer samples
 
-![Target Distribution](target_distribution)
+
+### Target Distribution
+**Insights:**
+
+The data is relatively balanced, however, obesity level (Insufficient_Weight) has the fewer samples. So I used stratification during train-test split to split to preserve proportions.
+
+![Target Distribution](target_distribution.png)
+
+
+
+### Correlation Matrix
+**Observations:**
+
+- BMI and weight are highly correlated since BMI = weight/ (height)^2.
+- FCVC (vegetable consumption) and TUE show moderate negative correlation with BMI, and
+- Age has a small positive correlation with BMI
+  
+So there was a need to drop BMI (because is derived from weight and height) to prevent multicolinearity, which could lead to unstable model coefficients, reduced interpretability, and redundant information
+
+![Correlation Matrix](correlation_matrix.png)
+
+
+### ANOVA F-Test
+**Insights:**
+
+**This test shows how well each feature alone linearly sepaprates the classes**
+- All features are statistically significat (p-value < 0.05). 
+- However, weight is the most strongly associated feature with obesity levels, followed by gender, family history with overweight, FCVC, CAEC, Age, and FAVC.
+- Factors such as Height, CALC, MTRANS, NCP, SCC, FAF, and CH2O
+demonstrate moderate inluence, while 
+- Behavioral featues like SMOKE and TUE exhibit weaker associations.
+
+  ![ANOVA Results](anova_results.png)
+
+
+### Classification Report (Best Model)
+**Insights:**
+
+The observvation reveals that, Random Forest acheives approximately 95% accuracy, macro F1 score, and weighted F1 scores. Which outperforms both the Logistic Regression and Decision Tree models.
+
+![Classification Report](.png)

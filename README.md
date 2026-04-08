@@ -74,10 +74,29 @@ demonstrate moderate inluence, while
 
   ![ANOVA Results](anova_results.png)
 
+## Classification Modelling
 
 ### Classification Report (Best Model)
 **Insights:**
 
 The observvation reveals that, Random Forest acheives approximately 95% accuracy, macro F1 score, and weighted F1 scores. Which outperforms both the Logistic Regression and Decision Tree models.
 
-![Classification Report](.png)
+![Classification Report](Classification_Report.png)
+
+
+### Feature Importance
+**Insights:**
+
+- Weight is the dominant predictor, followed by Height, Age, and FCVC.
+- Low importance of family_history and CALC indicates their effects are captured indirectly by other features unlike the results from the ANOVA F test
+This observation (RF Feature importantce) shows how much each feature actually contributes to the trained modls's decisions (capturing non-linear effects and interactions)
+
+![feature Importance](feature_importance.png)
+
+## Regression Modelling
+
+I employed L2 regularization (Ridge) and Linear Regression for the regression modeling since features are already scaled for these models
+
+**Insights:**
+
+Both regression models achieve near-perfect fit (R^2 = 0.988, MSE = 0.77), indicating that BMI is fully determined by the available predictors. Ridge regression offers no improvement over ordinary least squares, confirming no problematic multicolinearity or overfitting 

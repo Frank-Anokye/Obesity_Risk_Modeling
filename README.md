@@ -39,4 +39,7 @@ The dataset include data for the estimation of obesity levels in individuals fro
 
 ## EXPLORATORY DATA ANALYSIS (EDA)
 
-EDA involves exploring the da
+### Target Distribution
+The data is relatively balanced, however, obesity level (Insufficient_Weight) has the fewer samples
+
+![Target Distribution](images/target_distribution)
